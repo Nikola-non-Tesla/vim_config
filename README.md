@@ -2,8 +2,8 @@
 
 ## Prefazione
 Ci sono due tipo di configurazione tra cui scegliere:
-	+ Vim Lite: quello che uso principalmente, molto veloce, bisogna soltanto creare il file.c senza tutta struttura di cartelle, ecc... ma **non ha il debugger integrato**.
-	+ Vim Full: configurazione completa, creerà una folder struct uguale a quella di un qualsiasi ide, ma è molto più pesante. **Comprende il debugger**.
+	* Vim Lite: quello che uso principalmente, molto veloce, bisogna soltanto creare il file.c senza tutta struttura di cartelle, ecc... ma **non ha il debugger integrato**.
+	* Vim Full: configurazione completa, creerà una folder struct uguale a quella di un qualsiasi ide, ma è molto più pesante. **Comprende il debugger**.
 
 ## Installazione - Vim Lite
     $ mv ~/.vimrc ~/.vimrc.old && cp vimrc_lite ~/.vimrc && cp -R defaultcode/ .vim/defaultcode/
