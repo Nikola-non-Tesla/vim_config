@@ -18,6 +18,7 @@ Caso particolare per archlinux (come sempre).
 ### ArchLinux
 
 Vi servità cmake, gcc, python3, clang. Dopo potrete eseguire il seguente comando:
+
     $ cd ~/.vim/bundle/youcompleteme && python3 install.py --clang-completer --system-libclang
 
 
