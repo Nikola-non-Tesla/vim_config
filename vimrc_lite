@@ -136,12 +136,5 @@ inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" 
 "carica il file default per avere la sintassi di c
 au BufNewFile *.c 0r ~/.vim/defaultcode/default.c | let IndentStyle = "c"
 
-"config debug (vimspector)
-let g:vimspector_enable_mapping = 'HUMAN'
-nmap <F2> <Plug>VimspectorContinue
-nmap <F3> <Plug>VimspectorStop
-nmap <F4> <Plug>VimspectorToggleBreakpoint
-
-
 let g:indentLine_enabled = 1
 set encoding=utf-8
