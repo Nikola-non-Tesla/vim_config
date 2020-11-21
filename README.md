@@ -14,6 +14,7 @@
 Ora aprite vim (vi darà degli errori, premete invio e ignorateli) e eseguite il comando :PluginInstall
 Installiamo il debugger, il seguente comando sarà soltanto per c e cpp, si potranno aggiungere altri comandi. 
 Fare riferimento a [vimspector](https://github.com/puremourning/vimspector#supported-languages).
+
     $ ./.vim/bundle/vimspector/install_gadget.py --enable-c
 
 Dopo aver fatto ciò si dovrà installare [YCM](https://github.com/ycm-core/YouCompleteMe#linux-64-bit), seguire le istruzioni nella suddetta pagina.
