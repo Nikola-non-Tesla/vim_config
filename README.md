@@ -36,10 +36,10 @@ Se è andato tutto a buon fine, cosa improbabile, allora i miei keybinding sono 
 * **F6**: Spellcheck, **z=** per vedere le parole suggerite.
 
 ### Comandi debug
-Il tasto '<leader>' è lo spazio, può essere cambiato nel file .vimrc
-* **<leader>dd**: avvia il debug, e procede nel codice.
-* **<leader>de**: chiude il debug
-* **<leader>db**: posiziona un breakpoint
+Il tasto `<leader>` è lo spazio, può essere cambiato nel file .vimrc
+* **`<leader>dd`**: avvia il debug, e procede nel codice.
+* **`<leader>de`**: chiude il debug
+* **`<leader>db`**: posiziona un breakpoint
 
 Gli altri sono meno importanti.
 
