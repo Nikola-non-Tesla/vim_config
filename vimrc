@@ -21,9 +21,16 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+"Plugin 'ervandew/supertab'
 Plugin 'morhetz/gruvbox'
 Plugin 'lifepillar/vim-gruvbox8'
+"Plugin 'arcticicestudio/nord-vim'
 Plugin 'valloric/youcompleteme'
+"Plugin 'dylanaraps/wal.vim'
+"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+"Plugin 'Yggdroot/indentLine'
+"Plugin 'sheerun/vim-polyglot'
+Plugin 'puremourning/vimspector'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,8 +46,11 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
-"
-"
+
+"tasto di leader
+let mapleader = ' '
+
+
 " Airline Config (Theme - monochrome - raven)
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -53,7 +63,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 " NERDThree Conifg
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-map <F8> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
 
 " Syntastic Config
 set statusline+=%#warningmsg#
@@ -66,7 +76,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1 
 
 "Tagbar Config
-nmap <F9> :TagbarToggle<CR>
+nmap <F3> :TagbarToggle<CR>
 
 "GruvBox
 "let g:gruvbox_contrast_dark='medium'
@@ -81,8 +91,20 @@ colorscheme gruvbox8
 set number
 set relativenumber
 
+"UltiSnips
+" Tasti per UltraSnips.
+"let g:UltiSnipsExpandTrigger="<s-tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 " :UltiSnipsEdit verticale.
 let g:UltiSnipsEditSplit="vertical"
+
+"Supertab
+" Compatibilità tra YCM e UltiSnips (usando supertab)
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Tasti per UltiSnipsExpandTrigger
 let g:UltiSnipsExpandTrigger = "<tab>"
@@ -93,8 +115,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 let g:UltiSnipsSnippetsDir = "~/.vim/bundle/ultisnips/UltiSnips"
 
 "Spell Check
-"nmap <F5> :setlocal spell! spelllang=en_us<CR>
-"nmap <F6> :setlocal spell! spelllang=it<CR>
+nmap <F6> :setlocal spell! spelllang=en_us,it<CR>
 
 "YouCompleteMe
 let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/youcompleteme/third_party/ycmd/.ycm_extra_conf.py'
@@ -103,7 +124,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 
 " Compilatore
 augroup programming
-	autocmd FileType c	nnoremap <buffer> <F5> :!clear && gcc -o %.bin % -lm && ./%.bin<CR>
+	autocmd FileType c	nnoremap <buffer> <F5> :!clear && gcc -g -o %.bin % -lm && ./%.bin<CR>
 	autocmd FileType tex 	nnoremap <buffer> <F5> :!clear && pdflatex %<CR>
 	autocmd FileType cpp 	nnoremap <buffer> <F5> :!clear && g++ -o %.bin % && ./%.bin<CR>
 	autocmd FileType python nnoremap <buffer> <F5> :!clear && python %<CR>
@@ -120,6 +141,9 @@ augroup END
 
 filetype plugin indent on 
 
+"Marcher in programmazione
+"nmap <F6> :set foldmethod=marker<CR>
+
 "Compatibilità YCM e Ultisnips
 let g:UltiSnipsExpandTrigger = "<nop>"
 let g:ulti_expand_or_jump_res = 0
@@ -133,8 +157,36 @@ function ExpandSnippetOrCarriageReturn()
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
+"urlview
+"nnoremap <leader>u :silent w !xurls | uniq | dmenu -l 10 | xargs -r xdg-open<CR>
+
 "carica il file default per avere la sintassi di c
 au BufNewFile *.c 0r ~/.vim/defaultcode/default.c | let IndentStyle = "c"
+
+"config debug (vimspector)
+"let g:vimspector_enable_mapping = 'HUMAN'
+
+nnoremap <leader>dd :call vimspector#Continue()<CR>
+nnoremap <leader>de :call vimspector#Reset()<CR>
+
+nmap <leader>dl <Plug>VimspectrorStepInto
+nmap <leader>dj <Plug>VimspectrorStepOver
+nmap <leader>dk <Plug>VimspectrorStepOut
+
+nmap <leader>db <Plug>VimspectorToggleBreakpoint
+
+"nmap <F7> <Plug>VimspectorToggleBreakpoint
+"nmap <F9> <Plug>VimspectorPause
+"nmap <F10> <Plug>VimspectorStepOver
+"nmap <F11> <Plug>VimspectorStepInto
+
+
+
+
+
+
+
+
 
 let g:indentLine_enabled = 1
 set encoding=utf-8
