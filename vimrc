@@ -21,15 +21,9 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'majutsushi/tagbar'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
-"Plugin 'ervandew/supertab'
 Plugin 'morhetz/gruvbox'
 Plugin 'lifepillar/vim-gruvbox8'
-"Plugin 'arcticicestudio/nord-vim'
 Plugin 'valloric/youcompleteme'
-"Plugin 'dylanaraps/wal.vim'
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
-"Plugin 'Yggdroot/indentLine'
-"Plugin 'sheerun/vim-polyglot'
 Plugin 'puremourning/vimspector'
 
 " All of your Plugins must be added before the following line
@@ -175,12 +169,33 @@ nmap <leader>dk <Plug>VimspectrorStepOut
 
 nmap <leader>db <Plug>VimspectorToggleBreakpoint
 
+"creo la fz gotowindow
+fun! GoToWindow(id)
+	call win_gotoid(a:id)
+endfun
+"comandi che uso per spstarmi tra le fineste
+nnoremap <leader>dc :call GoToWindow(g:vimspector_session_windows.code)<CR>
+nnoremap <leader>dt :call GoToWindow(g:vimspector_session_windows.tagpage)<CR>
+nnoremap <leader>dv :call GoToWindow(g:vimspector_session_windows.variables)<CR>
+nnoremap <leader>dw :call GoToWindow(g:vimspector_session_windows.watches)<CR>
+nnoremap <leader>ds :call GoToWindow(g:vimspector_session_windows.stack_trace)<CR>
+nnoremap <leader>do :call GoToWindow(g:vimspector_session_windows.output)<CR>
+
+"comanid per passare da una schermata all'altra più velocemente
+let i = 1 "premendo leader e il numero della schermata.
+while i <= 9
+	execute 'nnoremap <Leader>' . i . ' :' . i . 'wincmd w<CR>'
+        let i = i + 1
+endwhile
+
+
 "nmap <F7> <Plug>VimspectorToggleBreakpoint
 "nmap <F9> <Plug>VimspectorPause
 "nmap <F10> <Plug>VimspectorStepOver
 "nmap <F11> <Plug>VimspectorStepInto
 
-
+"au BufWinLeave * mkview
+"nmap <F4> :silent loadview<CR>
 
 
 
