@@ -8,7 +8,7 @@
 
 ## Installazione
 
-    $ mv ~/.vimrc ~/.vimrc.old && cp vimrc ~/.vimrc && cp -R defaultcode/ .vim/defaultcode/
+    $ mv $HOME/.vimrc $HOME/.vimrc.old && cp vim_config/vimrc $HOME/.vimrc && cp -R vim_config/defaultcode/ $HOME/.vim/defaultcode/
     $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
  
 Ora aprite vim (vi darà degli errori, premete invio e ignorateli) e eseguite il comando :PluginInstall
